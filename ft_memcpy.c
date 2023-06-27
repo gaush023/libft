@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:23:17 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/25 08:41:09 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:39:48 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char		*d;
 	const unsigned char	*s;
 
+	if (src == NULL && dest == NULL)
+		return (NULL);
 	i = 0;
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;

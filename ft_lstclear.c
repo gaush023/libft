@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:39:48 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/25 08:40:45 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:57:06 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
 
+	if (*lst == NULL)
+		return ;
 	if (lst && *lst && del)
 	{
 		while (*lst)
@@ -26,5 +28,4 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 			*lst = tmp;
 		}
 	}
-	*lst = NULL;
 }

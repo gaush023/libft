@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 20:49:40 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/25 20:33:36 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:57:47 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 	size_t	needle_len;
 
-	if (!haystack)
-		return (NULL);
 	if (*needle == '\0')
 		return ((char *)haystack);
 	needle_len = ft_strlen(needle);

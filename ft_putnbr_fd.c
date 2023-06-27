@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 00:11:26 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/25 08:41:25 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/06/27 18:51:29 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*ptr;
-	int		i;
+	unsigned int	nbr;
 
-	ptr = ft_itoa(n);
-	i = 0;
-	while (ptr[i])
+	if (n < 0)
 	{
-		write(fd, &ptr[i], 1);
-		i++;
+		ft_putchar_fd('-', fd);
+		nbr = (unsigned int)(n * -1);
 	}
+	else
+		nbr = (unsigned int)n;
+	if (nbr >= 10)
+		ft_putnbr_fd(nbr / 10, fd);
+	ft_putchar_fd((char)(nbr % 10 + '0'), fd);
 }

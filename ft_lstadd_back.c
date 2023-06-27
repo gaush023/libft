@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 10:40:52 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/25 08:40:37 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/06/27 16:13:25 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (new == NULL)
+	if (new == NULL || lst == NULL)
 		return ;
 	while (*lst)
 	{
