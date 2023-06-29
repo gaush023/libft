@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shuga <shuga@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 11:34:20 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/25 08:37:09 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:51:46 by shuga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,6 @@ int	get_word_count(char const *s, char c)
 	return (count);
 }
 
-char	**allocate_result_array(int count)
-{
-	return (malloc(sizeof(char *) * (count + 1)));
-}
-
 void	free_result_array(char **result, int count)
 {
 	while (count--)
@@ -53,6 +48,22 @@ char	*find_next_word(char const *s, char c, char **word_end)
 	return ((char *)s);
 }
 
+char	*copy_words(const char *s1, size_t n)
+{
+	char	*s2;
+	size_t	len;
+
+	len = ft_strlen(s1);
+	if (n < len)
+		len = n;
+	s2 = (char *)malloc(sizeof(char) * (len + 1));
+	if (!s2)
+		return (NULL);
+	s2 = ft_memcpy(s2, s1, len);
+	s2[len] = '\0';
+	return (s2);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		word_count;
@@ -60,16 +71,18 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	char	*word_start;
 	char	*word_end;
-
+	
+	if(s == NULL)
+		return(NULL);
 	word_count = get_word_count(s, c);
-	result = allocate_result_array(word_count);
+	result = (malloc(sizeof(char *) * (word_count + 1)));
 	if (!result)
 		return (NULL);
 	i = 0;
 	while (i < word_count)
 	{
 		word_start = find_next_word(s, c, &word_end);
-		result[i] = ft_strndup(word_start, word_end - word_start);
+		result[i] = copy_words(word_start, word_end - word_start);
 		if (!result[i])
 		{
 			free_result_array(result, i);
