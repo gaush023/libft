@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shuga <shuga@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 11:34:20 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/28 23:51:46 by shuga            ###   ########.fr       */
+/*   Updated: 2023/06/30 16:40:41 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	get_word_count(char const *s, char c)
 {
-	int	count;
+	size_t	count;
 
+	if (s == NULL)
+		return (0);
 	count = 0;
 	while (*s)
 	{
@@ -71,9 +73,7 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	char	*word_start;
 	char	*word_end;
-	
-	if(s == NULL)
-		return(NULL);
+
 	word_count = get_word_count(s, c);
 	result = (malloc(sizeof(char *) * (word_count + 1)));
 	if (!result)

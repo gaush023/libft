@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shuga <shuga@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:39:48 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/29 12:46:14 by shuga            ###   ########.fr       */
+/*   Updated: 2023/06/29 17:19:32 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
-	
+
+	if (lst == NULL)
+		return ;
 	if (lst && *lst && del)
 	{
 		while (*lst)
@@ -26,6 +28,4 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 			*lst = tmp;
 		}
 	}
-	else
-		*lst = NULL;
 }

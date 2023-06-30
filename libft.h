@@ -6,13 +6,14 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 20:56:17 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/27 17:07:06 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/06/29 22:44:01 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>

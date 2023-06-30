@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:43:41 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/26 19:56:26 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/06/30 16:20:21 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
-	size_t			i;
-	unsigned char	*u_str;
-	unsigned char	u_c;
+	size_t				i;
+	unsigned const char	*u_str;
+	unsigned char		u_c;
 
 	u_str = (unsigned char *)str;
 	u_c = (unsigned char)c;

@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 13:15:05 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/27 18:08:54 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/06/30 16:18:46 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static size_t	get_digit_count(int n)
 {
-	long	ln;
-	int		i;
+	long long	ln;
+	size_t		i;
 
 	ln = (long)n;
 	i = 0;
@@ -35,8 +35,8 @@ static size_t	get_digit_count(int n)
 char	*ft_itoa(int n)
 {
 	char	*ptr;
-	int		length;
-	int		is_negative;
+	size_t	length;
+	size_t	is_negative;
 	long	ln;
 
 	ln = (long)n;
