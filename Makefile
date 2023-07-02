@@ -6,7 +6,7 @@
 #    By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 09:38:24 by sagemura          #+#    #+#              #
-#    Updated: 2023/07/02 14:38:56 by sagemura         ###   ########.fr        #
+#    Updated: 2023/07/02 17:46:23 by sagemura         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ ifdef ADD
     ALL_OBJS += $(BONUS_OBJS)
 endif
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
