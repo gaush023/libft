@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:26:51 by sagemura          #+#    #+#             */
-/*   Updated: 2023/07/01 17:33:32 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/07/02 21:33:54 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@ void	*ft_calloc(size_t nitems, size_t size)
 
 	if (nitems && size > SIZE_MAX / nitems)
 		return (NULL);
-	else if (size * nitems == 0)
-	{
+	if (size == 0)
 		size = 1;
+	if (nitems == 0)
 		nitems = 1;
-	}
 	ptr = malloc(nitems * size);
 	if (ptr == NULL)
 		return (NULL);

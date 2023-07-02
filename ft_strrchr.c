@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:15:01 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/30 17:04:59 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/07/02 22:26:30 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	int		i;
+	size_t	i;
 	char	*temp;
 
 	temp = NULL;

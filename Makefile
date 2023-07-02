@@ -6,7 +6,7 @@
 #    By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 09:38:24 by sagemura          #+#    #+#              #
-#    Updated: 2023/07/02 17:46:23 by sagemura         ###   ########.fr        #
+#    Updated: 2023/07/02 22:30:12 by sagemura         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,24 +26,26 @@ BONUS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_b
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+ALL_OBJS = $(OBJS)
 
 ifdef ADD 
-    ALL_OBJS += $(BONUS_OBJS)
+    ALL_OBJS += $(BONUS_SRCS:.c=.o)
 endif
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
-$(NAME): $(OBJS)
+
+$(NAME): $(ALL_OBJS)
 	$(AR) rcs $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus:  $(OBJS) $(BONUS_OBJS)
-	make ADD=1
-	
+bonus:
+	$(MAKE) ADD=1 $(NAME)
+
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
 
