@@ -6,7 +6,7 @@
 #    By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 09:38:24 by sagemura          #+#    #+#              #
-#    Updated: 2023/06/27 17:06:57 by sagemura         ###   ########.fr        #
+#    Updated: 2023/07/02 14:09:54 by sagemura         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,11 @@ BONUS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_b
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+ALL_OBJS = $(OBJS)
+
+ifdef ADD 
+    ALL_OBJS += $(BONUS_OBJS)
+endif
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -38,9 +43,9 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	$(AR) rcs $(NAME) $^
-
+bonus: 
+	make ADD=1 all
+	
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
 
@@ -50,3 +55,5 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re bonus
+
+$(NAME): $(if $(ADD),$(BONUS_OBJS),)
