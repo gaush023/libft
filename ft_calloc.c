@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shuga <shuga@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:26:51 by sagemura          #+#    #+#             */
-/*   Updated: 2023/07/02 21:33:54 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/07/03 20:32:49 by shuga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ void	*ft_calloc(size_t nitems, size_t size)
 
 	if (nitems && size > SIZE_MAX / nitems)
 		return (NULL);
-	if (size == 0)
+	if (size * nitems == 0)
+	{
 		size = 1;
-	if (nitems == 0)
 		nitems = 1;
+	}
 	ptr = malloc(nitems * size);
 	if (ptr == NULL)
 		return (NULL);
-	ft_memset(ptr, 0, size * nitems);
+	ft_bzero(ptr, size * nitems);
 	return (ptr);
 }

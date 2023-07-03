@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shuga <shuga@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 10:40:52 by sagemura          #+#    #+#             */
-/*   Updated: 2023/07/01 17:38:31 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/07/03 20:36:38 by shuga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	if (new == NULL || lst == NULL)
 		return ;
+	new->next = NULL;
 	if (*lst == NULL)
 	{
 		*lst = new;
@@ -29,5 +30,4 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 			temp = temp->next;
 		temp->next = new;
 	}
-	new->next = NULL;
 }
