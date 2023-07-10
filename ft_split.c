@@ -6,13 +6,13 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 11:34:20 by sagemura          #+#    #+#             */
-/*   Updated: 2023/06/30 16:40:41 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/07/10 09:18:28 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	get_word_count(char const *s, char c)
+static int	get_word_count(char const *s, char c)
 {
 	size_t	count;
 
@@ -33,14 +33,14 @@ int	get_word_count(char const *s, char c)
 	return (count);
 }
 
-void	free_result_array(char **result, int count)
+static void	free_result_array(char **result, int count)
 {
 	while (count--)
 		free(result[count]);
 	free(result);
 }
 
-char	*find_next_word(char const *s, char c, char **word_end)
+static char	*find_next_word(char const *s, char c, char **word_end)
 {
 	while (*s == c)
 		s++;
@@ -50,7 +50,7 @@ char	*find_next_word(char const *s, char c, char **word_end)
 	return ((char *)s);
 }
 
-char	*copy_words(const char *s1, size_t n)
+static char	*copy_words(const char *s1, size_t n)
 {
 	char	*s2;
 	size_t	len;
